@@ -1,0 +1,385 @@
+/* =====================================================
+   BASE
+===================================================== */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3498db;
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.app-header h1 {
+    flex: 1;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 22px;
+}
+
+.search-input {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+    margin-top: 5px;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.25);
+    background: #fff;
+}
+
+/* =====================================================
+   LISTA DE TABLEROS
+===================================================== */
+.board-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 10px;
+}
+
+.board-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.board-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.add-board {
+    height: 120px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.add-board:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+/* =====================================================
+   KANBAN
+===================================================== */
+.kanban h2 {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.board {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+    min-height: 250px;
+    min-width: 250px;
+}
+
+.task {
+    margin: 5px 0;
+    padding: 8px;
+    background: #f4f4f4;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+    margin: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #2980b9;
+}
+
+.back-btn:focus {
+    outline: 3px solid rgba(52,152,219,0.35);
+    outline-offset: 2px;
+}
+
+/* =====================================================
+   AUTH (Login & Signup)
+===================================================== */
+.auth-container {
+    width: 100%;
+    max-width: 360px;
+    margin: 100px auto;
+    padding: 30px 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.auth-container h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.auth-input:focus {
+    border-color: #3498db;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.auth-btn:hover {
+    background: #2980b9;
+}
+
+.auth-btn:active {
+    transform: scale(0.98);
+}
+
+.auth-error {
+    margin-top: 12px;
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-success {
+    margin-top: 12px;
+    color: #27ae60;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-container a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   UTILIDADES / ACCESIBILIDAD
+===================================================== */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.hidden { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media (max-width: 480px) {
+    .app-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-header h1 {
+        font-size: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .board-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 14px;
+    }
+
+    .board-card,
+    .add-board {
+        height: 100px;
+        font-size: 16px;
+    }
+
+    .column {
+        min-width: 100%;
+    }
+
+    .auth-container {
+        margin: 40px 14px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .app-header h1 {
+        font-size: 22px;
+    }
+
+    .board-list {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .column {
+        min-width: 200px;
+    }
+}
+
+/* =====================================================
+   DARK MODE AUTOMÁTICO
+===================================================== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #eee;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .auth-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        color: #fff;
+    }
+
+    .auth-container h2 {
+        color: #fff;
+    }
+
+    .auth-input {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .auth-input:focus {
+        border-color: #3498db;
+        background: rgba(255,255,255,0.15);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+    }
+
+    .auth-btn {
+        background: #3498db;
+    }
+
+    .auth-btn:hover {
+        background: #2980b9;
+    }
+}
