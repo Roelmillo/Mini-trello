@@ -4,8 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from reactpy import component, html, use_state
 from reactpy.backend.fastapi import configure
 
-# ✅ Importamos todo desde components (gracias a __init__.py)
-from .components import Login, Signup, Header, BoardList, KanbanBoard
+# Importamos componentes
+from .components import Login, Signup, BoardList, KanbanBoard, Navbar
 
 # ------------------------------
 # CONFIGURACIÓN APP
@@ -13,7 +13,6 @@ from .components import Login, Signup, Header, BoardList, KanbanBoard
 BASE_DIR = Path(__file__).resolve().parent
 app = FastAPI()
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
-
 
 # ------------------------------
 # APP PRINCIPAL
@@ -36,6 +35,8 @@ def App():
         html.meta({"name": "viewport", "content": "width=device-width, initial-scale=1.0"}),
         html.link({"rel": "stylesheet", "href": "/static/style.css"}),
 
+        Navbar(),  # 👈 Nueva barra superior (única)
+
         (
             Signup(lambda: set_show_signup(False))
             if show_signup
@@ -44,7 +45,6 @@ def App():
                 if not logged_in
                 else html.div(
                     {},
-                    Header(search_query, set_search_query),
                     BoardList(handle_select_board, search_query)
                     if current_board is None
                     else KanbanBoard(current_board, handle_back),
